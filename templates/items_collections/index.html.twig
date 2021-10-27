@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ItemsCollectionsController!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
+
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+    </style>
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3 well mx-auto">
+            <div class="row">
+                <h1 class="text-center" >Add new collection</h1>
+                <div class="form-group">
+
+                    {{ form_start(items_collection_form) }}
+
+                    <div class="mb-3">
+                        {{ form_row(items_collection_form.title, {
+                            'attr': {'class': 'form-control'}
+                        }) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(items_collection_form.theme, {
+                            'attr': {'class': 'form-control'}
+                        }) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(items_collection_form.description, {
+                            'attr': {'class': 'form-control'}
+                        }) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(items_collection_form.image, {
+                            'attr': {'class': 'form-control-file'}
+                        }) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(items_collection_form.Save, {
+                            'attr' : {'class': 'btn btn-primary'}
+                        }) }}
+                    </div>
+
+                    {{ form_end(items_collection_form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

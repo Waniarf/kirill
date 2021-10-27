@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add new item{% endblock %}
+
+{% block body %}
+
+<style>
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
+
+    .tag {
+        display: inline-block;
+        background-color: #bae4fd;
+        border-radius: 10px;
+        padding: 0 1%;
+    }
+
+    .tag:hover {
+        background-color: #9bd9f8;
+    }
+
+</style>
+
+<nav class="navbar navbar-light bg-light justify-content-between mx-2">
+    <form class="form-inline">
+        <div class="input-group">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </div>
+    </form>
+</nav>
+<div class="container">
+    <div class="row text-center">
+        <div class="my-3">
+            <h2>Items of {{ collection.title }}</h2>
+            <hr style="height: 3px; width: 60%; border-radius: 3px; margin: 0 auto">
+            <table class="table table-striped">
+                <tr>
+                    <th scope="col" style="width: 7%">#</th>
+                    <th scope="col" style="width: 18.33%">Name</th>
+                    <th scope="col" style="width: 52%">Tags</th>
+                    <th colspan="3" scope="col" style="width: 22.66%">Controls</th>
+                </tr>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>
+                            {% for tag in item.tags %}
+                                <div class="tag"> {{ tag }} </div>
+                            {% endfor %}
+                        </td>
+                        <td><a href="#">View</a></td>
+                        <td>Edit</td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th class="text-right" colspan="7">
+{#                        <a href="#" style="text-decoration: none" class="link-primary">Create new</a>#}
+                        <a href="{{ path('add_item',{ 'id': collection.id }) }}">Create new</a>
+                    </th>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    {% endblock %}

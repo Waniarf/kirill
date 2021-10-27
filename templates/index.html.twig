@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {% endblock %}
+{% block body %}
+
+    {{ form_start(form) }}
+        {% for soloUser in form.users %}
+
+            {{ form_widget(soloUser) }}
+
+        {% endfor %}
+    {{ form_end(form) }}
+{% endblock %}
